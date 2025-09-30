@@ -1,0 +1,10 @@
+.infobox {
+    text-align: center;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+
+}
