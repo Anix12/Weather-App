@@ -3,14 +3,18 @@ import Button from '@mui/material/Button';
 import './searchBox.css';
 import { useState } from 'react';
 import Alert from '@mui/material/Alert';
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 export default function SearchBox({ updateInfo }) {
     let [city, setCity] = useState("");
     let [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-    const API_URL = "https://api.openweathermap.org/data/2.5/weather";
-    const API_KEY = "0954d6345f35bb5ee3c74fd0292a59a7";
+    const API_URL = import.meta.env.VITE_WEATHER_API_URL;
+    const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;;
+    console.log(API_KEY);
+    console.log(API_URL);
 
     let getWeatherInfo = async () => {
         try {
@@ -39,24 +43,30 @@ export default function SearchBox({ updateInfo }) {
     let handleSubmit = async (evt) => {
         try {
             evt.preventDefault();
+            setLoading(true);
             console.log(city);
             setCity("");
             let info = await getWeatherInfo();
             updateInfo(info);
-        
+
         } catch (err) {
             setError(true);
+        } finally {
+            setLoading(false);
         }
     }
 
     return (
-        <div className='search-box'>
-            <form onSubmit={handleSubmit}>
-                <TextField id="outlined-basic" label="Enter City Name" variant="outlined" required value={city} onChange={handleChange} />
-                <br /><br />
-                <Button variant="contained" type="Submit">Search Wheather</Button>
-            </form>
-            {error && <Alert severity="error" className='error-msg'>Please enter a valid city name.</Alert>}
-        </div>
+        <>
+            <div className='search-box'>
+                <form onSubmit={handleSubmit}>
+                    <TextField id="outlined-basic" label="Enter City Name" variant="outlined" required value={city} onChange={handleChange} />
+                    <br /><br />
+                    <Button variant="contained" type="Submit">Search Wheather</Button>
+                </form>
+                {error && <Alert severity="error" className='error-msg'>Please enter a valid city name.</Alert>}
+                {loading && <CircularProgress className='loader' />}
+            </div>
+        </>
     )
 }
