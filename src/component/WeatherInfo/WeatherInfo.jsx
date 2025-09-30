@@ -1,5 +1,5 @@
-import SearchBox from "./SearchBox"
-import InfoBox from "./InfoBox"
+import SearchBox from "../SearchBox/SearchBox"
+import InfoBox from "../InfoBox/InfoBox"
 import './WeatherInfo.css'
 import { useState } from "react"
 

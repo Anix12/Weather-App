@@ -1,6 +1,4 @@
-import SearchBox from "./SearchBox";
-import InfoBox from "./InfoBox";
-import WeatherInfo from "./WeatherInfo";
+import WeatherInfo from "./component/WeatherInfo/WeatherInfo"
 function App() {
 
   return (
