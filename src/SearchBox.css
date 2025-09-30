@@ -2,3 +2,41 @@
     text-align: center;
     margin-bottom: 30px;
 }
+
+.error-msg {
+    color: red;
+    margin-top: 10px;
+    width: 500px;
+    margin: 15px auto;
+}
+
+#outlined-basic {
+    width: 350px;
+}
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    background: #f0f4f8;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 500px;
+}
+
+.search-box form {
+    width: 100%;
+}
+
+.search-box .MuiTextField-root {
+    width: 100%;
+}
+
+.search-box .MuiButton-root {
+    width: 100%;
+    padding: 0.8rem;
+    font-weight: bold;
+}
