@@ -12,9 +12,8 @@ export default function SearchBox({ updateInfo }) {
     const [loading, setLoading] = useState(false);
 
     const API_URL = import.meta.env.VITE_WEATHER_API_URL;
-    const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;;
-    console.log(API_KEY);
-    console.log(API_URL);
+    const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
+
 
     let getWeatherInfo = async () => {
         try {
@@ -29,25 +28,26 @@ export default function SearchBox({ updateInfo }) {
                 feelsLike: data.main.feels_like,
                 weather: data.weather[0].description
             };
-            setError(false);
             return result;
         } catch (err) {
             throw err;
         }
     }
+
+
     let handleChange = (evt) => {
         setCity(evt.target.value);
     }
 
 
     let handleSubmit = async (evt) => {
+        evt.preventDefault();
+        setLoading(true);
+        setError(false);
         try {
-            evt.preventDefault();
-            setLoading(true);
-            setCity("");
             let info = await getWeatherInfo();
             updateInfo(info);
-
+            setCity("");
         } catch (err) {
             setError(true);
         } finally {
