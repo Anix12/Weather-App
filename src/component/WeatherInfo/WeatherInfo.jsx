@@ -1,4 +1,4 @@
-import './WeatherInfo/WeatherInfo.css';
+import '../WeatherInfo/WeatherInfo.css';
 import SearchBox from "../SearchBox/SearchBox.jsx"
 import InfoBox from "../InfoBox/InfoBox.jsx"
 import { useState } from "react"
