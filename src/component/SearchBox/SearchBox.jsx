@@ -1,6 +1,6 @@
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import './searchBox.css';
+import '../SearchBox/SearchBox.css';
 import { useState } from 'react';
 import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
