@@ -6,8 +6,9 @@ A sleek and responsive weather web application built with **React + Vite + Mater
 ## 🌐 Live Demo  
  
 🚀 **Try it here:** [Weather App Live](https://weather-app-rosy-chi-90.vercel.app/)  
+  
 ---  
-
+  
 ## 🚀 Features  
   
 - 🌍 Search weather by city name   
