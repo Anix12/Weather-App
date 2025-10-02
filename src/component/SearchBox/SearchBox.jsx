@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import { useState } from 'react';
 import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
-
+import { fetchWeatherInfo } from '../../services/WeatherService';
 
 export default function SearchBox({ updateInfo }) {
     let [city, setCity] = useState("");
@@ -13,26 +13,6 @@ export default function SearchBox({ updateInfo }) {
 
     const API_URL = import.meta.env.VITE_WEATHER_API_URL;
     const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
-
-
-    let getWeatherInfo = async () => {
-        try {
-            let responce = await fetch(`${API_URL}?q=${city}&appid=${API_KEY}&units=metric`);
-            let data = await responce.json();
-            let result = {
-                city: city,
-                temp: data.main.temp,
-                tempMin: data.main.temp_min,
-                tempMax: data.main.temp_max,
-                humidity: data.main.humidity,
-                feelsLike: data.main.feels_like,
-                weather: data.weather[0].description
-            };
-            return result;
-        } catch (err) {
-            throw err;
-        }
-    }
 
 
     let handleChange = (evt) => {
@@ -45,7 +25,7 @@ export default function SearchBox({ updateInfo }) {
         setLoading(true);
         setError(false);
         try {
-            let info = await getWeatherInfo();
+            let info = await fetchWeatherInfo(city, API_URL, API_KEY);
             updateInfo(info);
             setCity("");
         } catch (err) {
@@ -53,7 +33,7 @@ export default function SearchBox({ updateInfo }) {
         } finally {
             setLoading(false);
         }
-    }
+    };
 
     return (
         <>
