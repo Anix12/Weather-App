@@ -6,6 +6,8 @@ A sleek and responsive weather web application built with **React + Vite + Mater
 ## 🌐 Live Demo  
  
 🚀 **Try it here:** [Weather App Live](https://weather-app-rosy-chi-90.vercel.app/)  
+[![Watch the demo](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.loom.com/share/807ba9584a7e45f49c9d48ec19102501?sid=7f872ea8-688f-4ece-9456-35321ab8b26d)
+
   
 ---  
   
